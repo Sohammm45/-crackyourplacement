@@ -1,0 +1,15 @@
+class Solution {
+ public:
+  int majorityElement(vector<int>& nums) {
+    int ans;          // Variable to store the majority element candidate
+    int count = 0;    // Counter to balance the occurrences
+
+    for (const int num : nums) {  // Iterate through each element in the array
+      if (count == 0)             // If count is zero, we need a new candidate
+        ans = num;                // Set the new candidate to the current element
+      count += num == ans ? 1 : -1;  // Update the count
+    }
+
+    return ans;  // Return the candidate majority element
+  }
+};
